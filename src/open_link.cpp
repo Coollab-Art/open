@@ -33,9 +33,12 @@ void open(const char* link)
 
 #if defined(__APPLE__)
 
+#include <string>
+
 namespace open_link {
 void open(const char* link)
 {
+    system((std::string{"open "} + link).c_str());
 }
 } // namespace open_link
 
