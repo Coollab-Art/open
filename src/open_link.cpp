@@ -26,9 +26,11 @@ void open(const char* link)
 namespace open_link {
 void open(const wchar_t* link)
 {
+    system((std::wstring{"xdg-open "} + url).c_str());
 }
 void open(const char* link)
 {
+    system((std::string{"xdg-open "} + url).c_str());
 }
 } // namespace open_link
 
