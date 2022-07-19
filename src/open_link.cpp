@@ -9,10 +9,6 @@
 #include <shellapi.h>
 
 namespace open_link {
-void open(const wchar_t* link)
-{
-    ShellExecuteW(0, 0, link, 0, 0, SW_SHOW);
-}
 void open(const char* link)
 {
     ShellExecuteA(0, 0, link, 0, 0, SW_SHOW);
@@ -23,14 +19,13 @@ void open(const char* link)
 
 #if defined(__linux__)
 
+#include <string>
+
 namespace open_link {
-void open(const wchar_t* link)
-{
-    system((std::wstring{"xdg-open "} + url).c_str());
-}
+
 void open(const char* link)
 {
-    system((std::string{"xdg-open "} + url).c_str());
+    system((std::string{"xdg-open "} + link).c_str());
 }
 } // namespace open_link
 
@@ -39,9 +34,6 @@ void open(const char* link)
 #if defined(__APPLE__)
 
 namespace open_link {
-void open(const wchar_t* link)
-{
-}
 void open(const char* link)
 {
 }
