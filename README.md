@@ -21,4 +21,5 @@ Simply use "tests/CMakeLists.txt" to generate a project, then run it.
 
 - Go to *Settings* (<kbd>CTRL</kbd> + <kbd>,</kbd>), select *Workspace*, search for "Source Directory" and set it as `${workspaceFolder}/tests`.
 - Reload the window (<kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>P</kbd> and search for "Reload Window").
+- Delete the CMake cache (<kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>P</kbd> and search for "Delete cache and reconfigure").
 - Then the CMake extension should pick it up and you can run the tests as usual with the triangle icon.
