@@ -11,7 +11,7 @@
 namespace open_link {
 void open(const char* link)
 {
-    ShellExecuteA(0, 0, link, 0, 0, SW_SHOW);
+    ShellExecuteA(nullptr, nullptr, link, nullptr, nullptr, SW_SHOW);
 }
 } // namespace open_link
 
@@ -22,7 +22,6 @@ void open(const char* link)
 #include <string>
 
 namespace open_link {
-
 void open(const char* link)
 {
     system((std::string{"xdg-open "} + link).c_str());
