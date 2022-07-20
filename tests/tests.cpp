@@ -3,5 +3,5 @@
 // This should open the GitHub page of open_link.
 auto main() -> int
 {
-    open_link::open("https://github.com/CoolLibs/open_link");
+    Cool::open_link("https://github.com/CoolLibs/open_link");
 }

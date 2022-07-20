@@ -8,12 +8,12 @@
 // These two includes must be in that order, because windows.h #defines things that impact shellapi.h
 #include <shellapi.h>
 
-namespace open_link {
-void open(const char* link)
+namespace Cool {
+void open_link(const char* link)
 {
     ShellExecuteA(nullptr, nullptr, link, nullptr, nullptr, SW_SHOW);
 }
-} // namespace open_link
+} // namespace Cool
 
 #endif
 
@@ -21,12 +21,12 @@ void open(const char* link)
 
 #include <string>
 
-namespace open_link {
-void open(const char* link)
+namespace Cool {
+void open_link(const char* link)
 {
     system((std::string{"xdg-open "} + link).c_str());
 }
-} // namespace open_link
+} // namespace Cool
 
 #endif
 
@@ -34,11 +34,11 @@ void open(const char* link)
 
 #include <string>
 
-namespace open_link {
-void open(const char* link)
+namespace Cool {
+void open_link(const char* link)
 {
     system((std::string{"open "} + link).c_str());
 }
-} // namespace open_link
+} // namespace Cool
 
 #endif

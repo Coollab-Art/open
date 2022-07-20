@@ -1,8 +1,8 @@
 #pragma once
 
-namespace open_link {
+namespace Cool {
 
-/// Opens the link in a web browser.
-void open(const char* link);
+/// Opens the link in the user's default web browser.
+void open_link(const char* link);
 
-} // namespace open_link
+} // namespace Cool
