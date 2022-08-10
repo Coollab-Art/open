@@ -2,7 +2,7 @@
 
 ## Including
 
-To add this library to your project, simply add those two lines to your _CMakeLists.txt_:
+To add this library to your project, simply add these two lines to your _CMakeLists.txt_:
 
 ```cmake
 add_subdirectory(path/to/open_link)
