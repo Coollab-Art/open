@@ -10,14 +10,19 @@ target_sources(open_link PRIVATE
     src/open_link.cpp
 )
 
-# ---Setup warnings---
-if (OPEN_LINK_ENABLE_WARNINGS_AS_ERRORS)
-    message("-- [open_link] Enabling warnings as errors for open_link")
-    if(MSVC)
-        target_compile_options(open_link PRIVATE /WX /W4)
-    else()
-        target_compile_options(open_link PRIVATE -Werror -Wall -Wextra -Wpedantic -pedantic-errors -Wconversion -Wsign-conversion -Wno-unused-result)
-    endif()
+# Set warning level
+if(MSVC)
+    target_compile_options(open_link PRIVATE /W4)
 else()
-    message("-- [open_link] Not using warnings as errors for open_link")
+    target_compile_options(open_link PRIVATE -Wall -Wextra -Wpedantic -pedantic-errors -Wconversion -Wsign-conversion -Wno-unused-result)
+endif()
+
+# Maybe enable warnings as errors
+set(WARNINGS_AS_ERRORS_FOR_OPEN_LINK OFF CACHE BOOL "ON iff you want to treat warnings as errors")
+if(WARNINGS_AS_ERRORS_FOR_OPEN_LINK)
+    if(MSVC)
+        target_compile_options(open_link PRIVATE /WX)
+    else()
+        target_compile_options(open_link PRIVATE -Werror)
+    endif()
 endif()
