@@ -1,7 +1,7 @@
-#include <open_link/open_link.hpp>
+#include <open/open.hpp>
 
-// This should open the GitHub page of open_link.
+// This should open the GitHub page of open.
 auto main() -> int
 {
-    Cool::open_link("https://github.com/CoolLibs/open_link");
+    Cool::open("https://github.com/CoolLibs/open");
 }

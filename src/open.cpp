@@ -1,4 +1,4 @@
-#include <open_link/open_link.hpp>
+#include <open/open.hpp>
 
 // Thanks to https://stackoverflow.com/questions/17347950/how-do-i-open-a-url-from-c
 
@@ -9,7 +9,7 @@
 #include <shellapi.h>
 
 namespace Cool {
-void open_link(const char* link)
+void open(const char* link)
 {
     ShellExecuteA(nullptr, nullptr, link, nullptr, nullptr, SW_SHOW);
 }
@@ -22,7 +22,7 @@ void open_link(const char* link)
 #include <string>
 
 namespace Cool {
-void open_link(const char* link)
+void open(const char* link)
 {
     system((std::string{"xdg-open "} + link).c_str());
 }
@@ -35,7 +35,7 @@ void open_link(const char* link)
 #include <string>
 
 namespace Cool {
-void open_link(const char* link)
+void open(const char* link)
 {
     system((std::string{"open "} + link).c_str());
 }

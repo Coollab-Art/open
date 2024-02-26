@@ -1,24 +1,26 @@
-# open_link
+# open
+
+Open any link, folder or file. Cross-platform.
 
 ## Including
 
 To add this library to your project, simply add these two lines to your _CMakeLists.txt_:
 
 ```cmake
-add_subdirectory(path/to/open_link)
-target_link_libraries(${PROJECT_NAME} PRIVATE open_link::open_link)
+add_subdirectory(path/to/open)
+target_link_libraries(${PROJECT_NAME} PRIVATE Cool::open)
 ```
 
 Then include it as:
 
 ```cpp
-#include <open_link/open_link.hpp>
+#include <open/open.hpp>
 ```
 
 ## Example
 
 ```cpp
-Cool::open_link("https://github.com/CoolLibs/open_link");
+Cool::open("https://github.com/CoolLibs/open");
 ```
 
 ## Running the tests
