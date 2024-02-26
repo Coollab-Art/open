@@ -9,9 +9,9 @@
 #include <shellapi.h>
 
 namespace Cool {
-void open(const char* link)
+void open(const char* link_or_path)
 {
-    ShellExecuteA(nullptr, nullptr, link, nullptr, nullptr, SW_SHOW);
+    ShellExecuteA(nullptr, "open", link_or_path, nullptr, nullptr, SW_SHOWNORMAL);
 }
 } // namespace Cool
 
@@ -22,9 +22,9 @@ void open(const char* link)
 #include <string>
 
 namespace Cool {
-void open(const char* link)
+void open(const char* link_or_path)
 {
-    system((std::string{"xdg-open "} + link).c_str());
+    system((std::string{"xdg-open "} + link_or_path).c_str());
 }
 } // namespace Cool
 
@@ -35,9 +35,9 @@ void open(const char* link)
 #include <string>
 
 namespace Cool {
-void open(const char* link)
+void open(const char* link_or_path)
 {
-    system((std::string{"open "} + link).c_str());
+    system((std::string{"open "} + link_or_path).c_str());
 }
 } // namespace Cool
 
