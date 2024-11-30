@@ -4,7 +4,7 @@ set(WARNINGS_AS_ERRORS_FOR_OPEN OFF CACHE BOOL "ON iff you want to treat warning
 
 add_library(open)
 add_library(Cool::open ALIAS open)
-target_compile_features(open PUBLIC cxx_std_11)
+target_compile_features(open PUBLIC cxx_std_17)
 
 # ---Add source files---
 if(WARNINGS_AS_ERRORS_FOR_OPEN)
