@@ -99,7 +99,7 @@ void open_file(std::filesystem::path const& file_path)
 
 void open_focused_in_explorer(std::filesystem::path const& path)
 {
-    std::system(("open -R \"" + make_valid_path(file_path).string() + '\"').c_str());
+    std::system(("open -R \"" + make_valid_path(path).string() + '\"').c_str());
 }
 
 void open_folder_in_explorer(std::filesystem::path const& folder_path)
