@@ -6,16 +6,12 @@
 auto main(int argc, char* argv[]) -> int
 {
     // It's very important to set the locale to handle paths with characters like é and 分 on Windows
-    if (!std::setlocale(LC_ALL,
 #ifdef _WIN32
-                        ".65001" // utf-8
-#else
-                        "UTF-8"
-#endif
-        ))
+    if (!std::setlocale(LC_ALL, ".65001"))
     {
         assert(false);
     }
+#endif
 
     bool const should_run_imgui_tests = argc < 2 || strcmp(argv[1], "-nogpu") != 0; // NOLINT(*pointer-arithmetic)
     if (!should_run_imgui_tests)
