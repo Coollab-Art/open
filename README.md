@@ -17,10 +17,26 @@ Then include it as:
 #include <open/open.hpp>
 ```
 
-## Example
+## Usage
+
+⚠ You might really want to consider calling
+```cpp
+// It's very important to set the locale to handle paths with characters like é and 分 on Windows
+if (!std::setlocale(LC_ALL,
+#ifdef _WIN32
+                    ".65001" // utf-8
+#else
+                    "UTF-8"
+#endif
+    ))
+{
+    assert(false);
+}
+```
+at the beginning of your application, to make sure special characters are handled properly.
 
 ```cpp
-Cool::open("https://github.com/CoolLibs/open");
+Cool::open_link("https://github.com/CoolLibs/open");
 ```
 
 ## Running the tests
