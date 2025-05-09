@@ -29,7 +29,7 @@ std::setlocale(LC_ALL, ".65001");
 at the beginning of your application, to make sure special characters are handled properly.
 
 ```cpp
-Cool::open_link("https://github.com/CoolLibs/open");
+Cool::open_link("https://github.com/Coollab-Art/open");
 ```
 
 ## Running the tests

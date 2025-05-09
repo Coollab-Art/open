@@ -17,7 +17,7 @@ auto main(int argc, char* argv[]) -> int
     if (!should_run_imgui_tests)
         return 0;
 
-    auto link = std::string{"https://github.com/CoolLibs/open/blob/main/tests/logo.png"};
+    auto link = std::string{"https://github.com/Coollab-Art/open/blob/main/tests/logo.png"};
     auto path = std::string{TESTS_FOLDER} + "/logo.png";
 
     quick_imgui::loop("open tests", [&]() {
