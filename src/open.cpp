@@ -26,8 +26,19 @@ static auto path_exists(std::filesystem::path const& path) -> bool
     }
 }
 
-static auto find_closest_existing_folder(std::filesystem::path path) -> std::filesystem::path
+static auto find_first_existing_folder_in_path(std::filesystem::path path) -> std::filesystem::path
 {
+    // NB: we assume that either path does not exist, or is a folder
+    // If path was an existing file, we would need to add this:
+    //
+    // if (File::exists(path))
+    // {
+    //     if (is_folder(path))
+    //         return path;
+    //     else
+    //         return without_file_name(path);
+    // }
+
     auto prev_size = path.string().size();
     while (true)
     {
@@ -70,7 +81,7 @@ void open_focused_in_explorer(std::filesystem::path const& path)
 void open_folder_in_explorer(std::filesystem::path const& folder_path)
 {
     assert(!path_exists(folder_path) || std::filesystem::is_directory(folder_path));
-    ShellExecuteW(nullptr, L"open", find_closest_existing_folder(make_valid_path(folder_path)).wstring().c_str(), nullptr, nullptr, SW_SHOWNORMAL);
+    ShellExecuteW(nullptr, L"open", find_first_existing_folder_in_path(make_valid_path(folder_path)).wstring().c_str(), nullptr, nullptr, SW_SHOWNORMAL);
 }
 
 } // namespace Cool
@@ -106,7 +117,7 @@ void open_focused_in_explorer(std::filesystem::path const& path)
 void open_folder_in_explorer(std::filesystem::path const& folder_path)
 {
     assert(!path_exists(folder_path) || std::filesystem::is_directory(folder_path));
-    std::system(("xdg-open \"" + find_closest_existing_folder(make_valid_path(folder_path)).string() + '\"').c_str());
+    std::system(("xdg-open \"" + find_first_existing_folder_in_path(make_valid_path(folder_path)).string() + '\"').c_str());
 }
 
 } // namespace Cool
@@ -140,7 +151,7 @@ void open_focused_in_explorer(std::filesystem::path const& path)
 void open_folder_in_explorer(std::filesystem::path const& folder_path)
 {
     assert(!path_exists(folder_path) || std::filesystem::is_directory(folder_path));
-    std::system(("open \"" + find_closest_existing_folder(make_valid_path(folder_path)).string() + '\"').c_str());
+    std::system(("open \"" + find_first_existing_folder_in_path(make_valid_path(folder_path)).string() + '\"').c_str());
 }
 
 } // namespace Cool
